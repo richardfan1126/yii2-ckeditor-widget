@@ -1,23 +1,10 @@
 <?php
-/**
- * @copyright Copyright (c) 2013-2016 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- */
-namespace dosamigos\ckeditor;
+namespace richardfan\ckeditor;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
 
-/**
- * CKEditor renders a CKEditor js plugin for classic editing.
- * @see http://docs.ckeditor.com/
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @package dosamigos\ckeditor
- */
 class CKEditor extends InputWidget
 {
     use CKEditorTrait;
@@ -58,15 +45,15 @@ class CKEditor extends InputWidget
 
         $id = $this->options['id'];
         
-        $assetBundle = \Yii::$app->getAssetManager()->getBundle(CKEditorAsset::className());
+        $assetBundle = \Yii::$app->getAssetManager()->getBundle(KCFinderAsset::className());
         $assetUrl = $assetBundle->baseUrl;
         
-        $this->clientOptions['filebrowserBrowseUrl'] = $assetUrl . '/kcfinder/browse.php?opener=ckeditor&type=files';
-        $this->clientOptions['filebrowserImageBrowseUrl'] = $assetUrl . '/kcfinder/browse.php?opener=ckeditor&type=images';
-        $this->clientOptions['filebrowserFlashBrowseUrl'] = $assetUrl . '/kcfinder/browse.php?opener=ckeditor&type=flash';
-        $this->clientOptions['filebrowserUploadUrl'] = $assetUrl . '/kcfinder/upload.php?opener=ckeditor&type=files';
-        $this->clientOptions['filebrowserImageUploadUrl'] = $assetUrl . '/kcfinder/upload.php?opener=ckeditor&type=images';
-        $this->clientOptions['filebrowserFlashUploadUrl'] = $assetUrl . '/kcfinder/upload.php?opener=ckeditor&type=flash';
+        $this->clientOptions['filebrowserBrowseUrl'] = $assetUrl . '/browse.php?opener=ckeditor&type=files';
+        $this->clientOptions['filebrowserImageBrowseUrl'] = $assetUrl . '/browse.php?opener=ckeditor&type=images';
+        $this->clientOptions['filebrowserFlashBrowseUrl'] = $assetUrl . '/browse.php?opener=ckeditor&type=flash';
+        $this->clientOptions['filebrowserUploadUrl'] = $assetUrl . '/upload.php?opener=ckeditor&type=files';
+        $this->clientOptions['filebrowserImageUploadUrl'] = $assetUrl . '/upload.php?opener=ckeditor&type=images';
+        $this->clientOptions['filebrowserFlashUploadUrl'] = $assetUrl . '/upload.php?opener=ckeditor&type=flash';
 
         $options = $this->clientOptions !== false && !empty($this->clientOptions)
             ? Json::encode($this->clientOptions)
@@ -80,5 +67,9 @@ class CKEditor extends InputWidget
         }
 
         $view->registerJs(implode("\n", $js));
+        
+        $_SESSION['KCFINDER'] = array(
+       		'disabled' => false,
+        );
     }
 }

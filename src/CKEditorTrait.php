@@ -1,21 +1,8 @@
 <?php
-/**
- * @copyright Copyright (c) 2013-2016 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- */
-namespace dosamigos\ckeditor;
+namespace richardfan\ckeditor;
 
 use yii\helpers\ArrayHelper;
 
-/**
- * CKEditorTrait has common methods for both CKEditor and CKEditorInline widgets.
- *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @package dosamigos\ckeditor
- */
 trait CKEditorTrait
 {
     /**
