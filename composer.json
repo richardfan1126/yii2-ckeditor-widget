@@ -28,7 +28,7 @@
     },
     "require": {
         "yiisoft/yii2": "^2.0",
-        "ckeditor/ckeditor": "dev-full/stable",
+        "ckeditor/ckeditor": "stable",
         "sunhater/kcfinder": "*"
     },
     "require-dev": {
