@@ -57,6 +57,16 @@ class CKEditor extends InputWidget
         CKEditorWidgetAsset::register($view);
 
         $id = $this->options['id'];
+        
+        $assetBundle = \Yii::$app->getAssetManager()->getBundle(CKEditorAsset::className());
+        $assetUrl = $assetBundle->baseUrl;
+        
+        $this->clientOptions['filebrowserBrowseUrl'] = $assetUrl . '/kcfinder/browse.php?opener=ckeditor&type=files';
+        $this->clientOptions['filebrowserImageBrowseUrl'] = $assetUrl . '/kcfinder/browse.php?opener=ckeditor&type=images';
+        $this->clientOptions['filebrowserFlashBrowseUrl'] = $assetUrl . '/kcfinder/browse.php?opener=ckeditor&type=flash';
+        $this->clientOptions['filebrowserUploadUrl'] = $assetUrl . '/kcfinder/upload.php?opener=ckeditor&type=files';
+        $this->clientOptions['filebrowserImageUploadUrl'] = $assetUrl . '/kcfinder/upload.php?opener=ckeditor&type=images';
+        $this->clientOptions['filebrowserFlashUploadUrl'] = $assetUrl . '/kcfinder/upload.php?opener=ckeditor&type=flash';
 
         $options = $this->clientOptions !== false && !empty($this->clientOptions)
             ? Json::encode($this->clientOptions)
