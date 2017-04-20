@@ -67,9 +67,5 @@ class CKEditor extends InputWidget
         }
 
         $view->registerJs(implode("\n", $js));
-        
-        $_SESSION['KCFINDER'] = array(
-       		'disabled' => false,
-        );
     }
 }
